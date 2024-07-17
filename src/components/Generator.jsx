@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SectionWrapper from "./SectionWrapper";
 import { WORKOUTS } from "../utils/swoldier";
 
@@ -21,6 +21,13 @@ function Header(props) {
 }
 
 const Generator = () => {
+  const [showModal, setShowModal] = useState(false);
+  // let showModal = false;
+
+  function toggleModal() {
+    setShowModal(!showModal);
+  }
+
   return (
     <SectionWrapper
       header={"generate your workout"}
@@ -51,11 +58,17 @@ const Generator = () => {
         description={"Select the muscles judged for annihilation."}
       />
 
-      <div className="bg-slate-950 p-3 border border-solid border-blue-400 rounded-lg">
-        <div className="relative flex items-center justify-center">
+      <div className="bg-slate-950 border border-solid border-blue-400 rounded-lg flex flex-col">
+        {/* Select muscle groups button */}
+        <button
+          onClick={toggleModal}
+          className="relative p-3 flex items-center justify-center"
+        >
           <p>Select muscle groups</p>
           <i className="fa-solid absolute right-3 top-1/2 -translate-y-1/2 fa-caret-down"></i>
-        </div>
+        </button>
+        {/* JS condition */}
+        {showModal && <div>modal</div>}
       </div>
     </SectionWrapper>
   );
