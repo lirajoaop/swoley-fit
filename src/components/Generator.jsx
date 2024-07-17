@@ -36,13 +36,26 @@ const Generator = () => {
         {Object.keys(WORKOUTS).map((type, typeIndex) => {
           return (
             <button
-              className="bg-slate-950 border border-blue-400 py-3 rounded-lg"
+              className="bg-slate-950 border border-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg"
               key={typeIndex}
             >
-              <p>{type}</p>
+              <p className="capitalize">{type.replaceAll("_", " ")}</p>
             </button>
           );
         })}
+      </div>
+
+      <Header
+        index={"02"}
+        title={"Lock on targets"}
+        description={"Select the muscles judged for annihilation."}
+      />
+
+      <div className="bg-slate-950 p-3 border border-solid border-blue-400 rounded-lg">
+        <div className="relative flex items-center justify-center">
+          <p>Select muscle groups</p>
+          <i className="fa-solid absolute right-3 top-1/2 -translate-y-1/2 fa-caret-down"></i>
+        </div>
       </div>
     </SectionWrapper>
   );
