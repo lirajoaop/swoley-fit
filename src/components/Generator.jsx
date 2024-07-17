@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SectionWrapper from "./SectionWrapper";
 import { WORKOUTS } from "../utils/swoldier";
+import { SCHEMES } from "../utils/swoldier";
 
 function Header(props) {
   const { index, title, description } = props;
@@ -22,7 +23,9 @@ function Header(props) {
 
 const Generator = () => {
   const [showModal, setShowModal] = useState(false);
-  // let showModal = false;
+  const [poison, setPoison] = useState("individual");
+  const [muscles, SetMuscles] = useState([]);
+  const [goals, SetGoals] = useState("strength_power");
 
   function toggleModal() {
     setShowModal(!showModal);
@@ -69,6 +72,25 @@ const Generator = () => {
         </button>
         {/* JS condition */}
         {showModal && <div>modal</div>}
+      </div>
+
+      <Header
+        index={"03"}
+        title={"Become Juggernaut"}
+        description={"Select your ultimate objective."}
+      />
+
+      <div className="grid grid-cols-3 gap-4">
+        {Object.keys(SCHEMES).map((scheme, SchemeIndex) => {
+          return (
+            <button
+              className="bg-slate-950 border border-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg"
+              key={SchemeIndex}
+            >
+              <p className="capitalize">{scheme.replaceAll("_", " ")}</p>
+            </button>
+          );
+        })}
       </div>
     </SectionWrapper>
   );
