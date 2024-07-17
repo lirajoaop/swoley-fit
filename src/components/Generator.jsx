@@ -1,7 +1,15 @@
 import React from "react";
+import SectionWrapper from "./SectionWrapper";
 
 const Generator = () => {
-  return <div>Generator</div>;
+  return (
+    <SectionWrapper
+      header={"generate your workout"}
+      title={["It's", "Huge", "o'clock"]}
+    >
+      dasdasdsas
+    </SectionWrapper>
+  );
 };
 
 export default Generator;
