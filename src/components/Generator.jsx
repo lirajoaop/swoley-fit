@@ -24,8 +24,8 @@ function Header(props) {
 const Generator = () => {
   const [showModal, setShowModal] = useState(false);
   const [poison, setPoison] = useState("individual");
-  const [muscles, SetMuscles] = useState([]);
-  const [goals, SetGoals] = useState("strength_power");
+  const [muscles, setMuscles] = useState([]);
+  const [goal, setGoal] = useState("strength_power");
 
   function toggleModal() {
     setShowModal(!showModal);
@@ -37,6 +37,7 @@ const Generator = () => {
       title={["It's", "Huge", "o'clock"]}
     >
       <Header
+        // 01 - Pick your poison
         index={"01"}
         title={"Pick your poison"}
         description={"Select the workout you wish to endure"}
@@ -46,7 +47,13 @@ const Generator = () => {
         {Object.keys(WORKOUTS).map((type, typeIndex) => {
           return (
             <button
-              className="bg-slate-950 border border-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg"
+              onClick={() => {
+                setPoison(type);
+              }}
+              className={
+                "bg-slate-950 border duration-200 hover:border-blue-600 py-3 rounded-lg" +
+                (type === poison ? " border-blue-600" : " border-blue-400")
+              }
               key={typeIndex}
             >
               <p className="capitalize">{type.replaceAll("_", " ")}</p>
@@ -55,6 +62,7 @@ const Generator = () => {
         })}
       </div>
 
+      {/* 02 - Lock on targets */}
       <Header
         index={"02"}
         title={"Lock on targets"}
@@ -74,6 +82,7 @@ const Generator = () => {
         {showModal && <div>modal</div>}
       </div>
 
+      {/* 03 - Become Juggernaut */}
       <Header
         index={"03"}
         title={"Become Juggernaut"}
@@ -84,7 +93,13 @@ const Generator = () => {
         {Object.keys(SCHEMES).map((scheme, SchemeIndex) => {
           return (
             <button
-              className="bg-slate-950 border border-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg"
+              onClick={() => {
+                setGoal(scheme);
+              }}
+              className={
+                "bg-slate-950 border duration-200 hover:border-blue-600 py-3 rounded-lg" +
+                (scheme === goal ? " border-blue-600" : " border-blue-400")
+              }
               key={SchemeIndex}
             >
               <p className="capitalize">{scheme.replaceAll("_", " ")}</p>
