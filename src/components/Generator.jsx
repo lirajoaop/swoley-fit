@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SectionWrapper from "./SectionWrapper";
 import { WORKOUTS } from "../utils/swoldier";
 import { SCHEMES } from "../utils/swoldier";
+import Button from "./Button";
 
 function Header(props) {
   const { index, title, description } = props;
@@ -158,10 +159,9 @@ const Generator = () => {
           );
         })}
       </div>
+      <Button text="Formulate"></Button>
     </SectionWrapper>
   );
 };
-
-<Button text="Accept & Begin" />;
 
 export default Generator;
