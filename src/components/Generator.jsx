@@ -22,11 +22,17 @@ function Header(props) {
   );
 }
 
-const Generator = () => {
+const Generator = (props) => {
+  const {
+    muscles,
+    setMuscles,
+    poison,
+    setPoison,
+    goal,
+    setGoal,
+    updateWorkout,
+  } = props;
   const [showModal, setShowModal] = useState(false);
-  const [poison, setPoison] = useState("individual");
-  const [muscles, setMuscles] = useState([]);
-  const [goal, setGoal] = useState("strength_power");
 
   // Functions
 
@@ -77,7 +83,7 @@ const Generator = () => {
                 setPoison(type);
               }}
               className={
-                "bg-slate-950 border duration-200 hover:border-blue-600 py-3 rounded-lg" +
+                "bg-slate-950 border duration-200 px-4 hover:border-blue-600 py-3 rounded-lg" +
                 (type === poison ? " border-blue-600" : " border-blue-400")
               }
               key={typeIndex}
@@ -149,7 +155,7 @@ const Generator = () => {
                 setGoal(scheme);
               }}
               className={
-                "bg-slate-950 border duration-200 hover:border-blue-600 py-3 rounded-lg" +
+                "bg-slate-950 border duration-200 hover:border-blue-600 py-3 rounded-lg px-4" +
                 (scheme === goal ? " border-blue-600" : " border-blue-400")
               }
               key={SchemeIndex}
@@ -159,7 +165,7 @@ const Generator = () => {
           );
         })}
       </div>
-      <Button text="Formulate"></Button>
+      <Button func={updateWorkout} text="Formulate"></Button>
     </SectionWrapper>
   );
 };
