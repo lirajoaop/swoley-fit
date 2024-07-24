@@ -26,7 +26,7 @@ const ExerciseCard = (props) => {
         <p className="capitalize">{exercise.muscles.join(" & ")}</p>
       </div>
 
-      <div className="flex flex-col bg-slate-950 rounded gap-2 p-2">
+      <div className="flex flex-col bg-slate-950 rounded gap-2 p-2 text-blue-400">
         {exercise.description.split("___").map((val) => {
           return (
             <div key={val} className="text-sm">
