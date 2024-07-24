@@ -114,7 +114,7 @@ export const EXERCISES = {
       "Place a light, weighted plate between the palms of your hands (as if your were praying), and while keeping your scapula retracted, press your hands together while pushing the plate away from you.",
     substitutes: ["palm prayer press"],
   },
-  pec_dec: {
+  pec_deck: {
     type: "accessory",
     meta: {
       environment: "gym", //if it has home, have to specify equipment
